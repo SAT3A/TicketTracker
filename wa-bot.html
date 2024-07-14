@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Reporting Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Issue Reporting Form</h2>
+    <form id="issueForm">
+        <label for="userName">Nama User:</label>
+        <input type="text" id="userName" name="userName" required>
+
+        <label for="ticketName">Nama Ticket:</label>
+        <input type="text" id="ticketName" name="ticketName" required>
+
+        <label for="issueDescription">Issue Description:</label>
+        <textarea id="issueDescription" name="issueDescription" required></textarea>
+
+        <label for="priority">Priority:</label>
+        <select id="priority" name="priority" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical</option>
+        </select>
+
+        <label for="update">Update:</label>
+        <textarea id="update" name="update" required></textarea>
+
+        <button type="button" onclick="sendToWhatsApp()">Submit</button>
+    </form>
+
+    <script>
+        function sendToWhatsApp() {
+            const userName = document.getElementById('userName').value;
+            const ticketName = document.getElementById('ticketName').value;
+            const issueDescription = document.getElementById('issueDescription').value;
+            const priority = document.getElementById('priority').value;
+            const update = document.getElementById('update').value;
+
+            const message = `Nama User: ${userName}%0aNama Ticket: ${ticketName}%0aIssue Description: ${issueDescription}%0aPriority: ${priority}%0aUpdate: ${update}`;
+            const whatsappURL = `https://api.whatsapp.com/send?phone=6285711420206&text=${message}`;
+
+            window.location.href = whatsappURL;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
