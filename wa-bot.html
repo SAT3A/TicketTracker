@@ -54,6 +54,17 @@
             <option value="Critical">Critical</option>
         </select>
 
+        <label for="whoraisedTicket">Siapa yang membuat tiket:</label>
+        <input type="text" id="whoraisedTicket" name="whoraisedTicket" required>
+
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="Open">Open</option>
+            <option value="On Progress">On Progress</option>
+            <option value="Resolve">Resolve</option>
+            <option value="Close">Close</option>
+        </select>
+
         <label for="update">Update:</label>
         <textarea id="update" name="update" required></textarea>
 
@@ -66,9 +77,12 @@
             const ticketName = document.getElementById('ticketName').value;
             const issueDescription = document.getElementById('issueDescription').value;
             const priority = document.getElementById('priority').value;
+            const whoraisedTicket = document.getElementById('whoraisedTicket').value;
+            const status = document.getElementById('status').value;
             const update = document.getElementById('update').value;
 
-            const message = `Nama User: ${userName}%0aNama Ticket: ${ticketName}%0aIssue Description: ${issueDescription}%0aPriority: ${priority}%0aUpdate: ${update}`;
+        
+            const message = `Nama User: ${userName}%0aNama Ticket: ${ticketName}%0aIssue Description: ${issueDescription}%0aPriority: ${priority}%0awhoraisedTicket: ${whoraisedTicket}%0aStatus: ${status}%0aUpdate: ${update}`;
             const whatsappURL = `https://api.whatsapp.com/send?phone=6285711420206&text=${message}`;
 
             window.location.href = whatsappURL;
